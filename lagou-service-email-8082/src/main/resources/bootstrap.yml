@@ -1,0 +1,11 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: lagou-service-email
+  cloud:
+    config:
+      uri: http://localhost:9006
+      name: lagou-service-config
+      profile: dev
+      label: master

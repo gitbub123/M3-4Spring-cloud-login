@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>welcome</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="../static/jquery.min.js"></script>
+    <script>
+    </script>
+    <style>
+        div{
+            padding:10px 10px 0 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span><div id="emailValue"></div>，欢迎登陆系统！</span>
+</div>
+</body>
+<script> 
+$(document).ready(function() { 
+	var query = location.search.substring(1);
+    var values= query.split("&");
+    for(var i = 0; i < values.length; i++) {
+        var pos = values[i].indexOf('=');
+        if (pos == -1) continue;
+        var paramname = values[i].substring(0,pos);
+        var value = values[i].substring(pos+1);
+        document.getElementById("emailValue").innerText = value;
+    }
+}); 
+</script>
+</html>

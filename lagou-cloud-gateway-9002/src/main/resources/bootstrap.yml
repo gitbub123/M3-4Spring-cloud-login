@@ -1,0 +1,42 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: lagou-cloud-gateway
+  cloud:
+    config:
+      uri: http://localhost:9006
+      name: lagou-service-config
+      profile: dev
+      label: master
+    gateway:
+      routes:
+      - id: service-user-router
+        uri: lb://lagou-service-user
+        predicates:
+        - Path=/api/user/**
+      - id: service-code-router
+        uri: lb://lagou-service-code
+        predicates:
+        - Path=/api/code/**
+      - id: service-email-router
+        uri: lb://lagou-service-email
+        predicates:
+        - Path=/api/email/**
+
+lagou-service-user:
+  ribbon:
+    ConnectTimeout: 2000
+    ReadTimeout: 10000
+    OkToRetryOnAllOperations: true
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 0
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000

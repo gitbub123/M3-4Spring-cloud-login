@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: lagou-service-code
+  cloud:
+    config:
+      uri: http://localhost:9006
+      name: lagou-service-config
+      profile: dev
+      label: master
+
+lagou-service-email:
+  ribbon:
+    ConnectTimeout: 2000
+    ReadTimeout: 10000
+    OkToRetryOnAllOperations: true
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 0
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
