@@ -18,9 +18,9 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author tudedong
+ * @author 罗维
  * @description ip防爆刷filter
- * @date 2020-07-05 23:17:52
+ * @create 2021-12-27 21:30
  */
 @Component
 @RefreshScope
@@ -54,20 +54,20 @@ public class IpRequestGlobalFilter implements GlobalFilter, Ordered {
         // 从request对象中获取客户端ip
         String clientIp = request.getRemoteAddress().getHostString();
         String path = request.getURI().getPath();
-        if(path.startsWith(apiPath)){
+        if (path.startsWith(apiPath)) {
             //当前时间往前推1分钟
             Long currentTime = System.currentTimeMillis();
-            Long beforeOneMinuteTime = currentTime-intervalMinutes*60*1000;
+            Long beforeOneMinuteTime = currentTime - intervalMinutes * 60 * 1000;
             List<Long> list = ipRegistryMap.get(clientIp);
             Integer count = 0;
-            if(list != null && list.size()>0){
-                for(Long time:list){
-                    if(beforeOneMinuteTime<=time && time <= currentTime){
+            if (list != null && list.size() > 0) {
+                for (Long time : list) {
+                    if (beforeOneMinuteTime <= time && time <= currentTime) {
                         count++;
                     }
                 }
             }
-            if(count > maxRequestCount){
+            if (count > maxRequestCount) {
                 // 状态码-303
                 response.setStatusCode(HttpStatus.SEE_OTHER);
                 String data = "您频繁进⾏注册，请求已被拒绝！";
@@ -76,8 +76,8 @@ public class IpRequestGlobalFilter implements GlobalFilter, Ordered {
             }
 
             ipRegistryList.add(System.currentTimeMillis());
-            System.out.println("=====添加ip请求时间戳，ipRegistryList="+ipRegistryList.size()+"=======");
-            ipRegistryMap.put(clientIp,ipRegistryList);
+            System.out.println("=====添加ip请求时间戳，ipRegistryList=" + ipRegistryList.size() + "=======");
+            ipRegistryMap.put(clientIp, ipRegistryList);
         }
         // 合法请求，放行，执行后续的过滤器
         return chain.filter(exchange);
@@ -85,6 +85,7 @@ public class IpRequestGlobalFilter implements GlobalFilter, Ordered {
 
     /**
      * 返回值表示当前过滤器的顺序(优先级)，数值越小，优先级越高
+     *
      * @return
      */
     @Override

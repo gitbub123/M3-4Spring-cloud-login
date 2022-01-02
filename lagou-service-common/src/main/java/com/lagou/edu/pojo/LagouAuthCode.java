@@ -6,10 +6,11 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 
+
 /**
- * @author tudedong
+ * @author 罗维
  * @description 验证码存储表
- * @date 2020-07-05 14:21:43
+ * @create 2021-12-27 21:30
  */
 @Getter
 @Setter

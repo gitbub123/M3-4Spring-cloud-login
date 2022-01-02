@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 17:33:03
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @FeignClient(value = "lagou-service-email", path = "/api/email", fallback = EmailServiceFeignClientFallback.class)
 public interface EmailServiceFeignClient {

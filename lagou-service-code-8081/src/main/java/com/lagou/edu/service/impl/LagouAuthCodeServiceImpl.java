@@ -10,9 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 16:09:20
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @Service
 public class LagouAuthCodeServiceImpl implements LagouAuthCodeService {
@@ -44,15 +43,15 @@ public class LagouAuthCodeServiceImpl implements LagouAuthCodeService {
 
         LagouAuthCode latest = lagouAuthCodeDao.findFirstByEmailOrderByIdDesc(email);
         //0-正确，1-错误，2-超时
-        if (latest == null){
+        if (latest == null) {
             return 1;
         }
-        if (!latest.getCode().equalsIgnoreCase(code)){
+        if (!latest.getCode().equalsIgnoreCase(code)) {
             return 1;
         }
 
         long expireTime = latest.getExpiretime().getTime();
-        if (expireTime <= System.currentTimeMillis()){
+        if (expireTime <= System.currentTimeMillis()) {
             return 2;
         }
         return 0;

@@ -7,9 +7,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 14:35:50
+ * @author 罗维
+ * @description 令牌存储表
+ * @create 2021-12-27 21:30
  */
 @Getter
 @Setter

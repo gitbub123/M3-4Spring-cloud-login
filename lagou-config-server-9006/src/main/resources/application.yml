@@ -17,9 +17,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/tudedong/springcloud-config-bus.git #配置git服务地址
-          username: 1224377983@qq.com #配置git用户名
-          password: Tudedong123456 #配置git密码
+          uri: https://github.com/gitbub123/springcloud-config-bus.git #配置git服务地址
+          username: gitbub123 #配置git用户名
+          password: Lw19941227 #配置git密码
           search-paths:
             - springcloud-config-bus
       # 读取分支

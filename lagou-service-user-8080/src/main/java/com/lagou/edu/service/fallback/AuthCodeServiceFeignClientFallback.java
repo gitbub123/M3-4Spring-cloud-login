@@ -4,9 +4,8 @@ import com.lagou.edu.service.AuthCodeServiceFeignClient;
 import org.springframework.stereotype.Component;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 21:27:10
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @Component
 public class AuthCodeServiceFeignClientFallback implements AuthCodeServiceFeignClient {

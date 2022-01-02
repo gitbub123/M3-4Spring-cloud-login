@@ -6,9 +6,9 @@ import lombok.Setter;
 import javax.persistence.*;
 
 /**
- * @author tudedong
+ * @author 罗维
  * @description 令牌存储表
- * @date 2020-07-05 14:25:18
+ * @create 2021-12-27 21:30
  */
 @Getter
 @Setter

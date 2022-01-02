@@ -7,9 +7,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 16:40:05
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @Service
 @RefreshScope
@@ -23,7 +22,7 @@ public class EmailServiceImpl implements EmailService {
 
         try {
             //这里邮箱地址和授权码暂时写死，安全性考虑没有放到配置文件中
-            EmailUtils.sendEmail(emailHost, "ttudedong@163.com", "", email, emailTitle, message);
+            EmailUtils.sendEmail(emailHost, "lwt112321@163.com", "ZREWBJTKPDLUATEZ", email, emailTitle, message);
             return true;
         } catch (Exception ex) {
             ex.printStackTrace();

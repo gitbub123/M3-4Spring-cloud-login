@@ -4,9 +4,8 @@ import com.lagou.edu.service.UserServiceGateWayFeignClient;
 import org.springframework.stereotype.Component;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-06 10:13:03
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @Component
 public class UserServiceGateWayFeignClientFallback implements UserServiceGateWayFeignClient {

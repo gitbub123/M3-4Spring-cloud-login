@@ -9,9 +9,8 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 16:42:28
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 public class EmailUtils {
 

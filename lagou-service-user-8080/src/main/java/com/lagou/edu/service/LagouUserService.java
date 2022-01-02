@@ -3,9 +3,8 @@ package com.lagou.edu.service;
 import com.lagou.edu.pojo.LagouToken;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 14:42:36
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 public interface LagouUserService {
 

@@ -11,9 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Random;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 16:02:52
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @RestController
 @RequestMapping("/api/code")
@@ -28,6 +27,7 @@ public class AuthCodeController {
     /**
      * 生成验证码并发送到邮箱，成功true，失败false
      * /code/create/{email}
+     *
      * @param email
      * @return
      */
@@ -44,6 +44,7 @@ public class AuthCodeController {
     /**
      * 校验验证码是否正确
      * 0-正确，1-错误，2-超时
+     *
      * @param email
      * @param code
      * @return
@@ -55,14 +56,14 @@ public class AuthCodeController {
 
     /**
      * 随机生成6位数
+     *
      * @return
      */
     private String getRandomCode() {
         Random random = new Random();
-        String result="";
-        for (int i=0;i<6;i++)
-        {
-            result+=random.nextInt(10);
+        String result = "";
+        for (int i = 0; i < 6; i++) {
+            result += random.nextInt(10);
         }
         return result;
     }

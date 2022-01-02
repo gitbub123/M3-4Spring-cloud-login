@@ -6,13 +6,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-06 10:07:50
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @FeignClient(value = "lagou-service-user", path = "/api/user", fallback = UserServiceGateWayFeignClientFallback.class)
 public interface UserServiceGateWayFeignClient {
 
     @GetMapping("/info/{token}")
-    String info(@PathVariable("token") String token) ;
+    String info(@PathVariable("token") String token);
 }

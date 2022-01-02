@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 16:35:57
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @RestController
 @RequestMapping("/api/email")

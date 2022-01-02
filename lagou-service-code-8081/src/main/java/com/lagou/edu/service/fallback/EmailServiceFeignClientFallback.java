@@ -4,9 +4,8 @@ import com.lagou.edu.service.EmailServiceFeignClient;
 import org.springframework.stereotype.Component;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 17:34:30
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @Component
 public class EmailServiceFeignClientFallback implements EmailServiceFeignClient {

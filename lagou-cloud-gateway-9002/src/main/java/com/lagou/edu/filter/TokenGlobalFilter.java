@@ -18,9 +18,9 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 /**
- * @author tudedong
+ * @author 罗维
  * @description 统一认证filter
- * @date 2020-07-05 23:10:39
+ * @create 2021-12-27 21:30
  */
 @Component
 public class TokenGlobalFilter implements GlobalFilter, Ordered {
@@ -42,23 +42,23 @@ public class TokenGlobalFilter implements GlobalFilter, Ordered {
         //获取每次请求的路径
         String path = request.getURI().getPath();
 
-        if(!path.startsWith("/api/user/") && !path.startsWith("/api/code/")){
+        if (!path.startsWith("/api/user/") && !path.startsWith("/api/code/")) {
             //如果不是/api/user/请求或/api/code/请求则进行token验证
             List<HttpCookie> tokenList = request.getCookies().get("token");
             boolean flag = false;
-            if(CollectionUtils.isEmpty(tokenList)){
+            if (CollectionUtils.isEmpty(tokenList)) {
                 flag = true;
-            }else{
+            } else {
                 HttpCookie httpCookie = tokenList.get(0);
                 String value = httpCookie.getValue();
                 //根据token去获取对应的登录邮箱
                 String info = userServiceFeignClient.info(value);
-                if("NOT FOUND".equals(info)){
+                if ("NOT FOUND".equals(info)) {
                     flag = true;
                 }
             }
             //验证不通过重定向到登录页面
-            if(flag){
+            if (flag) {
                 //重定向(redirect)到登录页面
                 String url = "/static/login.html";
                 //303状态码表示由于请求对应的资源存在着另一个URI，应使用GET方法定向获取请求的资源
@@ -75,6 +75,7 @@ public class TokenGlobalFilter implements GlobalFilter, Ordered {
 
     /**
      * 返回值表示当前过滤器的顺序(优先级)，数值越小，优先级越高
+     *
      * @return
      */
     @Override

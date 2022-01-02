@@ -4,9 +4,8 @@ import com.lagou.edu.pojo.LagouToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 15:22:05
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 public interface LagouTokenDao extends JpaRepository<LagouToken, Integer> {
 

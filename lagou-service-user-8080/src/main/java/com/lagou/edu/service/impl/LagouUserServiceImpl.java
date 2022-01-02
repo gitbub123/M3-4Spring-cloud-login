@@ -13,9 +13,8 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * @author tudedong
- * @description
- * @date 2020-07-05 14:43:50
+ * @author 罗维
+ * @create 2021-12-27 21:30
  */
 @Service
 public class LagouUserServiceImpl implements LagouUserService {
