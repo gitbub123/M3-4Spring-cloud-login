@@ -21,9 +21,19 @@ public class LagouAuthCode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String email;
+
     private String code;
+
+    /**
+     * 创建时间
+     */
     private Date createtime;
+
+    /**
+     * 过期时间
+     */
     private Date expiretime;
 
 }

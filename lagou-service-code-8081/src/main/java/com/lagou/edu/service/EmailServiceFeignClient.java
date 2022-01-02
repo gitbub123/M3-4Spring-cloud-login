@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(value = "lagou-service-email", path = "/api/email", fallback = EmailServiceFeignClientFallback.class)
 public interface EmailServiceFeignClient {
 
+    /**
+     * 发送邮件
+     * @param email email
+     * @param checkCode checkCode
+     * @return Boolean
+     */
     @GetMapping("/{email}/{code}")
     Boolean sendMail(@PathVariable("email") String email, @PathVariable("code") String checkCode);
 

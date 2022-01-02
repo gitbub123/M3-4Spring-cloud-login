@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(value = "lagou-service-code", path = "/api/code", fallback = AuthCodeServiceFeignClientFallback.class)
 public interface AuthCodeServiceFeignClient {
 
+    /**
+     * 校验code
+     * @param email
+     * @param code
+     * @return
+     */
     @GetMapping("/validate/{email}/{code}")
     public int validateAuthCode(@PathVariable("email") String email, @PathVariable("code") String code);
 }
